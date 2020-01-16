@@ -483,7 +483,10 @@ public class Exercises {
 	 */
 	public int teenSum(int a, int b) {
 		int total = (a + b);
-		if (total > 12 && total < 20) {
+		if (a >= 13 && a <= 19) {
+			return 19;
+		}
+		if (b >= 13 && b <= 19) {
 			return 19;
 		}
 		{
@@ -525,15 +528,17 @@ public class Exercises {
 	 */
 	public int teaParty(int tea, int candy) {
 		int outcome = 1;
-		if (tea < 5 || candy < 5) {
-			outcome = 0;
-		}
+
 		if ((tea >= (candy * 2)) ^ (candy >= (tea * 2))) {
+			outcome = 2;
+		}
+		if (tea < 5 ^ candy < 5) {
 			outcome = 0;
 		}
 		{
-		return outcome;
+			return outcome;
 		}
+
 	}
 
 	/*
@@ -542,8 +547,18 @@ public class Exercises {
 	 * twoAsOne(3, 2, 2) → false
 	 */
 	public boolean twoAsOne(int a, int b, int c) {
-		
-		return false;
+		if ((a + b) == c) {
+			return true;
+		}
+		if ((a + c) == b) {
+			return true;
+		}
+		if ((b + c) == a) {
+			return true;
+		}
+		{
+			return false;
+		}
 	}
 
 	/*
@@ -553,6 +568,13 @@ public class Exercises {
 	 * false) → false inOrder(1, 1, 2, true) → true
 	 */
 	public boolean inOrder(int a, int b, int c, boolean bOk) {
+		if ((bOk == false) && (b > a) && (c > b)) {
+			return true;
+		}
+		if ((bOk == true) && (c > b)) {
+			return true;
+		}
+
 		return false;
 	}
 
@@ -564,6 +586,13 @@ public class Exercises {
 	 * false inOrderEqual(5, 5, 7, true) → true
 	 */
 	public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
+		if ((equalOk == false) && (b > a) && (c > b)) {
+			return true;
+		}
+		if ((equalOk == true) && (b >= a) && (c >= b)) {
+			return true;
+		}
+
 		return false;
 	}
 
@@ -573,7 +602,20 @@ public class Exercises {
 	 * sum. loneSum(1, 2, 3) → 6 loneSum(3, 2, 3) → 2 loneSum(3, 3, 3) → 0
 	 */
 	public int loneSum(int a, int b, int c) {
-		return 0;
+		int sum = 0;
+
+		if ((a != b) && (a != c)) {
+			sum = sum + a;
+		} 
+		if ((b != c) && (b != a)) {
+			sum = sum + b;
+		} 
+		if ((c != a) && (c != b)) {
+			sum = sum + c;
+		}
+		{
+			return sum;
+		}
 	}
 
 	/*
@@ -584,7 +626,20 @@ public class Exercises {
 	 * → 1 luckySum(13, 1, 3) → 3 luckySum(13, 13, 3) → 0
 	 */
 	public int luckySum(int a, int b, int c) {
-		return 0;
+		int sum = 0;
+
+		if (a != 13) {
+			sum = sum + a;
+		}
+		if (b != 13 && a != 13) {
+			sum = sum + b;
+		}
+		if (c != 13 && b != 13) {
+			sum = sum + c;
+		}
+		{
+			return sum;
+		}
 	}
 
 }
