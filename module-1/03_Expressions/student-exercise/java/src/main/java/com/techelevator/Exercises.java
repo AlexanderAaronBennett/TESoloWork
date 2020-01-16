@@ -362,8 +362,21 @@ public class Exercises {
 	 * false) → "10:00"
 	 */
 	public String alarmClock(int day, boolean vacation) {
-		if (vacation == true)
-			return "";
+		String alarm = "7:00";
+		String alarm2 = "10:00";
+
+		if ((!vacation) && (day == 0 || day == 6)) {
+			return alarm2;
+		}
+		if ((!vacation) && (day >= 1 && day <= 5)) {
+			return alarm;
+		}
+		if ((vacation) && (day >= 1 && day <= 5)) {
+			return alarm2;
+		}
+		{
+			return "off";
+		}
 	}
 
 	/*
@@ -407,6 +420,10 @@ public class Exercises {
 	 * more20(22) → true
 	 */
 	public boolean more20(int n) {
+		if ((n % 20 == 1) || (n % 20 == 2)) {
+			return true;
+		}
+
 		return false;
 	}
 
@@ -416,7 +433,13 @@ public class Exercises {
 	 * false
 	 */
 	public boolean old35(int n) {
-		return false;
+		if ((n % 3 == 0) ^ (n % 5 == 0)) {
+			return true;
+		}
+		{
+
+			return false;
+		}
 	}
 
 	/*
@@ -425,7 +448,15 @@ public class Exercises {
 	 * (Hint: Think "mod".) less20(18) → true less20(19) → true less20(20) → false
 	 */
 	public boolean less20(int n) {
-		return false;
+		if ((n + 1) % 20 == 0) {
+			return true;
+		}
+		if ((n + 2) % 20 == 0) {
+			return true;
+		}
+		{
+			return false;
+		}
 	}
 
 	/*
@@ -434,7 +465,15 @@ public class Exercises {
 	 * is 2. nearTen(12) → true nearTen(17) → false nearTen(19) → true
 	 */
 	public boolean nearTen(int num) {
-		return false;
+		if ((num % 10 == 0) || (num % 10 == 1) || (num % 10 == 2)) {
+			return true;
+		}
+		if ((num + 2) % 10 == 0 || ((num + 1) % 10 == 0)) {
+			return true;
+		}
+		{
+			return false;
+		}
 	}
 
 	/*
@@ -443,7 +482,13 @@ public class Exercises {
 	 * return 19. teenSum(3, 4) → 7 teenSum(10, 13) → 19 teenSum(13, 2) → 19
 	 */
 	public int teenSum(int a, int b) {
-		return 0;
+		int total = (a + b);
+		if (total > 12 && total < 20) {
+			return 19;
+		}
+		{
+			return total;
+		}
 	}
 
 	/*
@@ -454,7 +499,20 @@ public class Exercises {
 	 * false) → false
 	 */
 	public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-		return false;
+
+		if ((isMom == true) && (isMorning == true) && (isAsleep == false)) {
+			return true;
+		}
+		if ((isMom == false) && (isMorning == false) && (isAsleep == false)) {
+			return true;
+		}
+		if ((isMom == true) && (isMorning == false) && (isAsleep == false)) {
+			return true;
+		}
+		{
+
+			return false;
+		}
 	}
 
 	/*
@@ -466,7 +524,16 @@ public class Exercises {
 	 * (0). teaParty(6, 8) → 1 teaParty(3, 8) → 0 teaParty(20, 6) → 2
 	 */
 	public int teaParty(int tea, int candy) {
-		return 0;
+		int outcome = 1;
+		if (tea < 5 || candy < 5) {
+			outcome = 0;
+		}
+		if ((tea >= (candy * 2)) ^ (candy >= (tea * 2))) {
+			outcome = 0;
+		}
+		{
+		return outcome;
+		}
 	}
 
 	/*
@@ -475,6 +542,7 @@ public class Exercises {
 	 * twoAsOne(3, 2, 2) → false
 	 */
 	public boolean twoAsOne(int a, int b, int c) {
+		
 		return false;
 	}
 
