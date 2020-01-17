@@ -99,18 +99,35 @@ public class Exercises {
 	 * maxEnd3([11, 5, 9]) → [11, 11, 11] maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		if ((nums.length >= 3) && (nums[0] >= nums[nums.length - 1])) {
-			return new int[] { nums[0], nums[0], nums[0] };
+//		if ((nums.length >= 3) && (nums[0] >= nums[nums.length - 1])) {
+//			return new int[] { nums[0], nums[0], nums[0] };
+//		}
+//
+//		if ((nums.length >= 3) && (nums[nums.length - 1] >= nums[0])) {
+//			return new int[] { nums[nums.length - 1], nums[nums.length - 1], nums[nums.length - 1] };
+//		}
+//		{
+//			return new int[] {};
+//		}
+//	}
+//		first element and last element which is larger.
+		int largerValue;
+		if (nums [0] > nums [2] ) {
+			largerValue = nums [0];
 		}
+		else {
+			largerValue = nums[2];
+		}
+		
+		for (int i = 0; i < nums.length; i++) {
+			nums[i] = largerValue;
+		}
+		{	
 
-		if ((nums.length >= 3) && (nums[nums.length - 1] >= nums[0])) {
-			return new int[] { nums[nums.length - 1], nums[nums.length - 1], nums[nums.length - 1] };
-		}
-		{
-			return new int[] {};
+	
+		return nums;
 		}
 	}
-
 	/*
 	 * 9. Given an array of ints, return the sum of the first 2 elements in the
 	 * array. If the array length is less than 2, just sum up the elements that
