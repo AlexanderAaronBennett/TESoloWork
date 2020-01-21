@@ -14,73 +14,70 @@ public class Lecture {
 		System.out.println("####################");
 		System.out.println("       LISTS");
 		System.out.println("####################");
-		
+
 		List<String> names = new ArrayList<String>();
 		names.add("Frodo");
 		names.add("Sam");
-		names.add("Bjorn");
-		
-
-		
+		names.add("Pippin");
+		names.add("Merry");
+		names.add("Gandalf");
+		names.add("Aragorn");
+		names.add("Boromir");
+		names.add("Gimli");
+		names.add("Legolas");
 
 		System.out.println("####################");
 		System.out.println("Lists are ordered");
 		System.out.println("####################");
-		
-		for(int i = 0; i < names.size(); i++) {
+
+		//the elements will be returned in the same order they were added
+		for (int i = 0; i < names.size(); i++) {
 			System.out.println(names.get(i));
 		}
-		
 
 		System.out.println("####################");
 		System.out.println("Lists allow duplicates");
 		System.out.println("####################");
-		
-		names.add("Sam");
-		
 
-		for(int i = 0; i < names.size(); i++) {
+		names.add("Sam");
+
+		for (int i = 0; i < names.size(); i++) {
 			System.out.println(names.get(i));
 		}
 
 		System.out.println("####################");
 		System.out.println("Lists allow elements to be inserted in the middle");
 		System.out.println("####################");
-		
-		
-		names.add(2, "Laegertha");
-		
-		for(int i = 0; i < names.size(); i++) {
+
+		names.add(2, "David");
+
+		for (int i = 0; i < names.size(); i++) {
 			System.out.println(names.get(i));
 		}
+
 		System.out.println("####################");
 		System.out.println("Lists allow elements to be removed by index");
 		System.out.println("####################");
-		
-		names.remove(1);
-		for(int i = 0; i < names.size(); i++) {
+
+		names.remove(2);
+
+		for (int i = 0; i < names.size(); i++) {
 			System.out.println(names.get(i));
 		}
 
 		System.out.println("####################");
 		System.out.println("Find out if something is already in the List");
 		System.out.println("####################");
-		
-		boolean isInList = names.contains("Samwise");
-		if(names.contains("Samwise") ) {
-		System.out.println("already here!");
-		}
-		else {
-			names.add("Samwise");
-	
-		}
+
+		boolean inList = names.contains("Samwise");
+		System.out.println("Samwise is in the list of names: " + inList);
 
 		System.out.println("####################");
 		System.out.println("Lists can be turned into an array");
 		System.out.println("####################");
-		
+
 		String[] namesArray = names.toArray(new String[names.size()]);
-		for(int i = 0; i < namesArray.length; i++) {
+		for (int i = 0; i < namesArray.length; i++) {
 			System.out.println(namesArray[i]);
 		}
 
@@ -90,94 +87,70 @@ public class Lecture {
 
 		/* Every primitive data type has an equivalent "primitive wrapper class" that is an object representation
 		 * of a primitive value */
-		
-		Integer employees = new Integer(25);
-		Integer piecesOfCake = new Integer("12");
-		
-		if (piecesOfCake < employees) {
-			System.out.println("burn the building down, eat the worm");
+		Integer employees = new Integer(25); // here we call a constructor that "wraps" a primitive int value in an object
+		Integer piecesOfCake = new Integer("24"); // here we call a constructor that converts a String into an Integer
+
+		if (employees > piecesOfCake) {
+			System.out.println("Burn the building down");
 		}
-		
-		
+
+		Double accountBalance = null;
+		// double newBalance = accountBalance + 100;  // this causes a NullPointerException because we are trying to "unbox" a null value
 
 		System.out.println("####################");
 		System.out.println("       FOREACH");
 		System.out.println("####################");
 		System.out.println();
-		
-		
-		for (String name : names ) {
+
+		// Let's loop through names again, but this time using a for-each loop
+		// for each name in names
+		for (String name : names) {
+			// print the name
 			System.out.println(name);
 		}
-		
-		
 
 		System.out.println("####################");
 		System.out.println("       QUEUES");
 		System.out.println("####################");
 		System.out.println();
-		
-		Queue<String> orders = new LinkedList<String>();
-		orders.offer("1 - Sandwich");
-		orders.offer("2 - Ramen");
-		orders.offer("3 - Salad");
-		
-		while ( orders.size() > 0 ) {
-			String nextOrder = orders.poll();
-			System.out.println("Order: " + nextOrder);
-		}
 
-		Queue<String> orders = new LinkedList<String>();
-		orders.offer("1 - Sandwich");
-		orders.offer("2 - Ramen");
-		orders.offer("3 - Salad");
-		
-		while(orders.size() > 0 ) {
-			String nextOrder = orders.poll();
-			System.out.println("Order: "+ nextOrder);
-		}
-		
-		
-		
-		
-		
-		
-		
+		Queue<String> priorities = new LinkedList<String>();
+
+		priorities.offer("Clean the dishes");
+		priorities.offer("Wash the counters");
+		priorities.offer("Sweep the floor");
+		priorities.offer("Scrub the floor");
+
 		/////////////////////
 		// PROCESSING ITEMS IN A QUEUE
 		/////////////////////
+		while (priorities.size() > 0) {
+			String nextPriority = priorities.poll();
+			System.out.println("NEXT PRIORITY " + nextPriority);
+		}
 
 		System.out.println("####################");
 		System.out.println("       STACKS");
 		System.out.println("####################");
 		System.out.println();
-		
-		
-		Stack<String> browserHistory = new Stack<String>();
-		browserHistory.push("http://disneyplus.com");
-		browserHistory.push("http://www.google.com");
-		browserHistory.push("http://m.facebook.com");
-		
-		
+
+		Stack<String> browserStack = new Stack<String>();
 
 		////////////////////
 		// PUSHING ITEMS TO THE STACK
 		////////////////////
-		
-		
-		while(browserHistory.size() > 0) {
-			String hisotryItem = browserHistory.pop();
-			System.out.println(hisotryItem);
-		}
+		browserStack.push("http://www.google.com");
+		browserStack.push("http://www.cnn.com");
+		browserStack.push("http://www.google.com");
+		browserStack.push("http://www.techelevator.com");
+		browserStack.push("http://www.si.com");
 
 		////////////////////
-		// POPPING OFF THE STACK
+		// POPPING THE STACK
 		////////////////////
-		
-		while ( browserHistory.size() > 0 ) {
-			String hisotryItem = browserHistory.pop();
-			System.out.println(hisotryItem);
+		while (browserStack.size() > 0) {
+			String previousPage = browserStack.pop();
+			System.out.println("PREVIOUS PAGE: " + previousPage);
 		}
-
 	}
 }
