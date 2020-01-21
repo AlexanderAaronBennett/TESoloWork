@@ -126,16 +126,16 @@ public class Exercises {
 		return (str.substring(2) + str.subSequence(0, 2));
 	}
 
-	/*
+	/*12
 	 * Given a string, return a "rotated right 2" version where the last 2 chars are
 	 * moved to the start. The string length will be at least 2. right2("Hello") →
 	 * "loHel" right2("java") → "vaja" right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		return (str.subSequence(str.length() - 1, str.length() - 2) + str.substring(0, str.length() - 2));
+		return (str.substring(str.length()-2) + str.substring(0, str.length()-2));
 	}
 
-	/*12
+	/*13
 	 * Given a string, return a string length 1 from its front, unless front is
 	 * false, in which case return a string length 1 from its back. The string will
 	 * be non-empty. theEnd("Hello", true) → "H" theEnd("Hello", false) → "o"
@@ -148,16 +148,21 @@ public class Exercises {
 		return (str.substring(str.length() - 1));
 	}
 
-	/*
+	/* 14
 	 * Given a string, return a version without both the first and last char of the
 	 * string. The string may be any length, including 0. withoutEnd2("Hello") →
 	 * "ell" withoutEnd2("abc") → "b" withoutEnd2("ab") → ""
 	 */
 	public String withoutEnd2(String str) {
-		return (str.substring(1, (str.length() - 1)));
+	if (str.length() > 2){
+		return str.substring(1, str.length()-1);
+	}
+	{
+	return "";
+	}
 	}
 
-	/*14
+	/*15
 	 * Given a string of even length, return a string made of the middle two chars,
 	 * so the string "string" yields "ri". The string length will be at least 2.
 	 * middleTwo("string") → "ri" middleTwo("code") → "od" middleTwo("Practice") →
@@ -167,7 +172,7 @@ public class Exercises {
 		return (str.substring(str.length() / 2 - 1, str.length() / 2 + 1));
 	}
 
-	/*15
+	/*16
 	 * Given a string, return true if it ends in "ly". endsLy("oddly") → true
 	 * endsLy("y") → false endsLy("oddy") → false
 	 */
@@ -180,7 +185,7 @@ public class Exercises {
 		}
 	}
 
-	/*16
+	/*17
 	 * Given a string and an int n, return a string made of the first and last n
 	 * chars from the string. The string length will be at least n. nTwice("Hello",
 	 * 2) → "Helo" nTwice("Chocolate", 3) → "Choate" nTwice("Chocolate", 1) → "Ce"
@@ -189,7 +194,7 @@ public class Exercises {
 		return str.substring(0, n) + str.substring(str.length() - n, str.length());
 	}
 
-	/*17
+	/*18
 	 * Given a string and an index, return a string length 2 starting at the given
 	 * index. If the index is too big or too small to define a string length 2, use
 	 * the first 2 chars. The string length will be at least 2. twoChar("java", 0) →
@@ -214,7 +219,12 @@ public class Exercises {
 	 * middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return str.substring(str.length() /2 + 3);
+		if (str.length() <= 3) {
+			return str;
+		}
+		{
+			return str.substring(str.length() % 3, str.length () -1);
+		}
 	}
 
 	/*
@@ -224,8 +234,14 @@ public class Exercises {
 	 * hasBad("badxx") → true hasBad("xbadxx") → true hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
-		return false;
+		if (str.substring(0,3).equals("bad") || str.substring(1, 4).equals("bad")) {
+			return true;
+		}
+		{
+			return false;
+		}
 	}
+	
 
 	/*
 	 * Given a string and a non-negative int n, return a larger string that is n
