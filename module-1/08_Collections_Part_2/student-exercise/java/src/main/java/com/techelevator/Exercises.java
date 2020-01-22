@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,8 +36,28 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
-	}
+		
+		Map<String, String> animalToGroup = new HashMap<String, String>();
+	
+		animalToGroup.put("rhino", "crash");
+		animalToGroup.put("giraffe", "Tower");
+		animalToGroup.put("elephant", "herd");
+		animalToGroup.put("lion", "pride");
+		animalToGroup.put("crow", "Murder");
+		animalToGroup.put("pigeon", "kit");
+		animalToGroup.put("flamingo", "pat");
+		animalToGroup.put("deer", "herd");
+		animalToGroup.put("dog", "pack");
+		animalToGroup.put("crocodile", "float");
+		
+		if (animalToGroup.containsKey(animalName.toLowerCase())) 
+		{
+			
+			
+		return animalToGroup.get(animalName);
+		}
+		return "Unknown";	
+}
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
