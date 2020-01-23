@@ -10,7 +10,7 @@ public class Exercises {
 	 * Map Exercises
 	 */
 
-	/*
+	/*1
 	 * Given the name of an animal, return the name of a group of that animal
 	 * (e.g. "Elephant" -> "Herd", "Rhino" - "Crash").
 	 *
@@ -36,7 +36,6 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		
 		Map<String, String> animalToGroup = new HashMap<String, String>();
 	
 		animalToGroup.put("rhino", "crash");
@@ -49,15 +48,15 @@ public class Exercises {
 		animalToGroup.put("deer", "herd");
 		animalToGroup.put("dog", "pack");
 		animalToGroup.put("crocodile", "float");
-		
-		if (animalToGroup.containsKey(animalName.toLowerCase())) 
-		{
+		animalName.toLowerCase();
+		if (animalToGroup.containsKey(animalName.toLowerCase())) {
 			
 			
-		return animalToGroup.get(animalName);
+		return animalToGroup.get(animalName.toLowerCase());
 		}
-		return "Unknown";	
+		return "unknown";	
 }
+
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -82,9 +81,22 @@ public class Exercises {
 	 *
 	 */
 	public Double isItOnSale(String itemNumber) {
-		return null;
-	}
-
+		Map<String, Double> itemToSale = new HashMap<String, Double>();
+		
+		String upperCase = itemNumber.toUpperCase();
+		
+		itemToSale.put("KITCHEN4001", 0.20);
+		itemToSale.put("GARAGE1070", 0.15);
+		itemToSale.put("LIVINGROOM", 0.10);
+		itemToSale.put("KITCHEN6073", 0.40);
+		itemToSale.put("BEDROOM3434", 0.60);
+		itemToSale.put("BATH0073", 0.15);
+		 
+		if (itemToSale.get(upperCase) == null) {
+			return 0.00;
+		}
+		return itemToSale.get(upperCase);
+		}
 	/*
 	 * Modify and return the given map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
 	 * but only if Paul has less than $10s.
@@ -96,7 +108,13 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		Integer peter = peterPaul.get("Peter");
+		Integer paul = peterPaul.get("Paul");
+		if ((peter > 0) && (paul < 1000)) {
+			peterPaul.put("Peter", peter/2);
+			peterPaul.put("Paul",paul+(peter/2));
+		}
+		return peterPaul;
 	}
 
     /*

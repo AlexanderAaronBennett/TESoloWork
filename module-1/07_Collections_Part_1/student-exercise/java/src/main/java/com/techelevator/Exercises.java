@@ -230,8 +230,33 @@ public class Exercises {
 	 * 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
-
-		return null;
+	List <Integer> boardingList = new ArrayList <Integer>();
+	Queue<Integer>queue1 = new LinkedList <Integer>();
+	Queue<Integer>queue2 = new LinkedList <Integer>();
+	Queue<Integer>queue3 = new LinkedList <Integer>();
+	for (int i = 0; i < seatNumberList.size(); i ++ ){
+		if (seatNumberList.get(i)  > 0 && (seatNumberList.get(i) <= 10)) {
+		queue1.offer(seatNumberList.get(i));
+		}
+		
+		else if (seatNumberList.get(i) > 10 && (seatNumberList.get(i) <= 20)) {
+			queue2.offer(seatNumberList.get(i));
+		}
+		else if (seatNumberList.get(i)  > 20 && (seatNumberList.get(i) <= 30)) {
+			queue3.offer(seatNumberList.get(i));
+		}
 	}
-
+		{
+	boardingList.addAll(queue1);
+	boardingList.addAll(queue2);
+	boardingList.addAll(queue3);
+		}
+		return boardingList;
+	
+	
+	
+	}
 }
+	
+
+
