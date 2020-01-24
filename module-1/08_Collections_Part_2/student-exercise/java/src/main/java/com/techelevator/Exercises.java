@@ -295,11 +295,29 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
+		Map<String, Integer> finalMap = new HashMap<String, Integer>();
+
+		for(int i = 0 ; i < words.length; i ++) {
+			
+			String last2 = words[i].substring(words[i].length()-2);
+			
+			int counter = 0;
+			
+			for(int j = 0; j <= words[i].length()-3; j ++) {
+				
+				String toTest = words[i].substring(j, j + 2);
+				
+				if (last2.equals(toTest)) {
+					counter ++;
+				}
+				
+			}
+			finalMap.put(words[i], counter);
+		}
+			
+			return finalMap;
+		}
 		
-		return null;
-		
-		//nested for loops and an if in the inner one.
-	}
 
 	/*
 	 * Given a list of Strings, return a list that contains the distinct values. In
