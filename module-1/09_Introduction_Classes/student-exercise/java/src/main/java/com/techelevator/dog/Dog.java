@@ -7,5 +7,21 @@ public class Dog {
 	public boolean isSleeping() {
 		return this.isSleeping;
 	}
+	public String makeSound() {
+		if (!isSleeping) {
+		return "Woof!";
+	} 
+		
+		return "Zzzzz...";
 	
+		
+		}
+	
+	public void sleep() {
+		isSleeping = true;
+	}
+	public void wakeUp() {
+		isSleeping = false;
+	}
 }
+
