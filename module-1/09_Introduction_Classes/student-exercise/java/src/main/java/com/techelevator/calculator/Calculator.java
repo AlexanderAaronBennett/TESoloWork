@@ -5,7 +5,7 @@ public class Calculator {
 	//
 	// Write code here
 	//
-	int result;
+	private int result;
 
 	public int getResult() {
 		return result;
@@ -19,11 +19,12 @@ public int multiply(int multiplier) {
 	this.result = result * multiplier;
 	return result;
 	}
+
 public int power(int exponent) {
 	if (exponent > 0) {
 	this.result = (int) Math.pow(this.result, exponent);
 	}
-	{
+	else {
 	this.result = (int) Math.pow(this.result, Math.abs(exponent));
 }
 	return result;
