@@ -8,6 +8,7 @@ public class Auction {
 	private String itemForSale;
 	private Bid currentHighBid;
 	private List<Bid> allBids;
+	private boolean isOpen = true;
 
 	public Auction(String itemForSale) {
 		this.itemForSale = itemForSale;
@@ -35,5 +36,13 @@ public class Auction {
 
 	public String getItemForSale() {
 		return itemForSale;
+	}
+	
+	public boolean isOpen() {
+		return this.isOpen;
+	}
+	
+	protected void closeAuction() {
+		this.isOpen = false;
 	}
 }

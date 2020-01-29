@@ -1,8 +1,9 @@
 package com.techelevator.farm;
 
-public class FarmAnimal implements Singable{
+public abstract class FarmAnimal implements Singable{
 	private String name;
 	private String sound;
+	private boolean isSleeping = false;
 
 	public FarmAnimal(String name, String sound) {
 		this.name = name;
@@ -13,8 +14,22 @@ public class FarmAnimal implements Singable{
 		return name;
 	}
 
-	public String getSound() {
+	public final String getSound() {
+		if (isSleeping ) {
+			return "Whhiiirrrrtttzzz";
+}
 		return sound;
+	}
+	
+	public boolean isSleeping() {
+		return isSleeping;
+	}
+	
+	public void sleep() {
+		isSleeping = true;
+	}
+	public void wakeUp() {
+		isSleeping = false;
 	}
 
 	public String sing() {
@@ -25,4 +40,6 @@ public class FarmAnimal implements Singable{
 		return true;
 	}
 
+	public abstract String eat(int howMuchFood);
+	
 }
