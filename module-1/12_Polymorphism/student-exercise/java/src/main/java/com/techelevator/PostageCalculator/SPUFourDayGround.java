@@ -1,6 +1,6 @@
 package com.techelevator.PostageCalculator;
 
-public class SPUFourDayGround extends FexEd{
+public class SPUFourDayGround extends SPU{
 
 	public double calculateRate(int distance, double weight) {
 		 double rate = (weight * 0.0050) * (double) distance;

@@ -33,10 +33,10 @@ public class PostageCalculator {
 			listOfDrivers.add(new SPUTwoDayBusiness());
 			listOfDrivers.add(new SPUNextDay());
 
-			System.out.println("Delivery Method              Cost $ ");
+			System.out.println("Delivery Method                                 Cost $ ");
 			System.out.println("=======================================================");
 			for (DeliveryDriver driver : listOfDrivers) {
-				System.out.println(driver.getName() + "\t\t" + driver.calculateRate(intInputDistance, dblInputWeight));
+				System.out.println(driver.getName() + "\t\t" + " $" + driver.calculateRate(intInputDistance, dblInputWeight));
 
 			}
 		}

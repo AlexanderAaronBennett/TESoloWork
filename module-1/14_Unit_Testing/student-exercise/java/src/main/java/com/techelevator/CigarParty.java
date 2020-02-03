@@ -15,7 +15,7 @@ public class CigarParty {
         int minimumCigarCount = 40;
         int maximumCigarCount = 60;
 
-        boolean hasMinimumCigars = cigars >= minimumCigarCount;
+        boolean hasMinimumCigars = cigars >= minimumCigarCount;//whether greater than minimum or not;
         boolean withinMaxRangeOfCigars = (!isWeekend && cigars <= maximumCigarCount) || isWeekend;
         boolean successful = hasMinimumCigars && withinMaxRangeOfCigars;
 

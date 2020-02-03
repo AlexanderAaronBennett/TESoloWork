@@ -3,8 +3,8 @@ package com.techelevator.PostageCalculator;
 public class PostalServiceFirstClass extends PostalService {
 
 	public double calculateRate(int distance, double weight) {
-		 double perMileRate = .500;
-		 double rate = (perMileRate * distance) ;
+		 
+		 
 		 	if(weight <= 2) {return 0.035 * distance;}
 		 	else if (weight <= 8 ) {return 0.040 * distance;}
 		 	else if (weight <= 15 ) {return 0.047 * distance;}
