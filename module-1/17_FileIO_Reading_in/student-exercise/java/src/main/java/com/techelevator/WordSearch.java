@@ -12,17 +12,22 @@ public class WordSearch {
 		String path = userInput.nextLine();
 		System.out.print("Please enter the word you're looking for >>> ");
 		String word = userInput.nextLine();
+		System.out.print("Is the word case sensitive (Y/N)? >>> ");
+		String caseSensitive = userInput.nextLine();
 		File inputFile = new File(path);
 		
 	try {	
 		Scanner scanner = new Scanner(inputFile);
-	
+		
 		int counter = 0;
 
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
-				if(line.contains(word)) {
-					System.out.println(counter + ") " + line);
+				if(
+					(caseSensitive.equalsIgnoreCase("Y") && line.contains(word)) ||
+					(caseSensitive.equalsIgnoreCase("N") && line.toLowerCase().contains(word.toLowerCase()))
+				) {
+					System.out.println(counter + ")" + line);
 					
 					
 				}
