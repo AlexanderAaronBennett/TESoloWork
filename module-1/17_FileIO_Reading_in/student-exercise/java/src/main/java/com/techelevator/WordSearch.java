@@ -28,8 +28,7 @@ public class WordSearch {
 					(caseSensitive.equalsIgnoreCase("N") && line.toLowerCase().contains(word.toLowerCase()))
 				) {
 					System.out.println(counter + ")" + line);
-					
-					
+						
 				}
 				counter ++;
 			}
@@ -42,4 +41,3 @@ public class WordSearch {
 		
 	}
 	
-//
