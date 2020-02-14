@@ -14,7 +14,7 @@ COMMIT TRANSACTION;
 -- features, the film speaks for itself, and doesn't need any gimmicks.
 BEGIN TRANSACTION;
 INSERT INTO film(title, description, release_year, language_id,length)
-VALUES ('Euclidean PI', 'The epic story of Euclid as a pizza delivery boy in ancient Greece', 2008, 1, 198)
+VALUES ('Euclidean PI', 'The epic story of Euclid as a pizza delivery boy in ancient Greece', 2008, 1, 198);
 COMMIT TRANSACTION;
 -- 3. Hampton Avenue plays Euclid, while Lisa Byway plays his slightly
 -- overprotective mother, in the film, "Euclidean PI". Add them to the film.
@@ -34,21 +34,38 @@ COMMIT TRANSACTION;
 -- 5. Assign the Mathmagical category to the following films, "Euclidean PI",
 -- "EGG IGBY", "KARATE MOON", "RANDOM GO", and "YOUNG LANGUAGE"
 BEGIN TRANSACTION;
-INSERT INTO film_category(film_id, category_id)
-VALUES  ((SELECT film_id FROM film WHERE title = 'Euclidean PI'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
-        ((SELECT film_id FROM film WHERE title = 'EGG IGBY'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
-        ((SELECT film_id FROM film WHERE title = 'KARATE MOON'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
-        ((SELECT film_id FROM film WHERE title = 'RANDOM GO'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
-        ((SELECT film_id FROM film WHERE title = 'YOUNG LANGUAGE'), (SELECT category_id FROM category WHERE name = 'Mathmagical'))
-COMMIT TRANSACTION;
+
+UPDATE film_category
+SET category_id = (SELECT category_id FROM category WHERE name = 'Mathmagical')
+WHERE film_id IN (SELECT film_id FROM film WHERE title IN ('Euclidean PI', 'EGG IGBY', 'KARATE MOON', 'RANDOM GO','YOUNG LANGUAGE'));
+
+IF NOT EXISTS(SELECT * FROM film_category WHERE film_id = 1001 AND category_id = 17)
+INSERT INTO film_category (film_id, category_id) VALUES ((SELECT film_id FROM film WHERE title = 'EUCLIDEAN PI'), (SELECT category_id FROM category WHERE name = 'Mathmagical'));
+
+--VALUES  ((SELECT film_id FROM film WHERE title = 'Euclidean PI'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
+ --       ((SELECT film_id FROM film WHERE title = 'EGG IGBY'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
+  --      ((SELECT film_id FROM film WHERE title = 'KARATE MOON'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
+  --      ((SELECT film_id FROM film WHERE title = 'RANDOM GO'), (SELECT category_id FROM category WHERE name = 'Mathmagical')),
+   --     ((SELECT film_id FROM film WHERE title = 'YOUNG LANGUAGE'), (SELECT category_id FROM category WHERE name = 'Mathmagical'))
+ROLLBACK TRANSACTION;
 -- 6. Mathmagical films always have a "G" rating, adjust all Mathmagical films
 -- accordingly.
 -- (5 rows affected)
-
+UPDATE film
+SET rating ='G'
+WHERE film_id IN(SELECT film_id 
+                 FROM film_category
+                 JOIN category ON category.category_id = film_category.category_id
+                 WHERE category.name = 'Mathmagical') );
 
 
 
 -- 7. Add a copy of "Euclidean PI" to all the stores.
+INSERT INTO inventory(film_id, store_id)
+SELECT (SELECT film_id FROM film WHERE title = 'EUCLIDEAN PI'), store_id FROM store;
+
+
+
 BEGIN TRANSACTION;
 INSERT INTO inventory(film_id, store_id)
 VALUES ((SELECT film_id FROM film WHERE title = 'Euclidean PI'), (SELECT store_id FROM store WHERE store_id = 1)),
