@@ -13,5 +13,106 @@
     box-sizing: border-box;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
   }
-  
+  body{
+    background-color: var(--bg-color);
+    display: grid;
+    grid-template-columns: 1fr,2fr,2fr,2fr;
+    grid-template-areas:
+    " logo header .  ."
+    " nav  main_img  main_img main_img "
+    " . what-we-do our-work contact-us ";
+    grid-gap: 12px;
+  }
+    header{
+      grid-area: header;
+      height: 150px;
+    }
+    img{
+      width: 100%;
+    }
+    aside nav ul{
+      list-style-type: none;
+    }
+     aside nav ul li a{
+      text-decoration: none;
+      list-style: none;
+      color: #00ADEE;
+      width: 100%;
+      
+      border-bottom: solid;
+      border-bottom-width: max;
+      border-bottom-color:  rgba(0, 173, 238, 0.4);
+      text-align: center;
+      grid-area: nav;
+      display: flex;
+      align-items: flex-end;
+      justify-content:center;
+      text-align: center;
+      list-style-type: upper-roman;
+   
+    padding: 1em;
+    margin: 0 -2em;
+    
+    }
+    #what-we-do{
+      grid-area: what_we_do;
+      border-right-style: solid;
+      border-right-width: 2px;
+      border-right-color: rgba(170, 239, 135, 0.8);
+      padding: 15px;
+    }
+    #our-work{
+      grid-area: our-work;
+      border-right-style: solid;
+      border-right-width: 2px;
+      border-right-color: rgba(170, 239, 135, 0.8);
+      padding: 15px;
+    }
+    #contact-us{
+      grid-area: contact-us;
+    
+      padding: 10px;
+    }
+    section{
+      display:flex;
+      justify-content: space-between;
+    }
+
+    header img{
+      width: 200px;
+    }
+    section h2{
+      color:#8CC36F
+    }
+    aside{
+      width: 200px;
+      border-right-style: solid;
+      border-right-width: 2px;
+      border-right-color: rgba(0, 173, 238, 0.4);
+      position: static;
+    }
+    aside img{
+      grid-area: logo;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 120px;
+        width: 120px;
+      }
+      nav {
+        margin-left: 30px;
+        text-decoration: none;
+      color: #00ADEE;
+        grid-area: nav;
+        display: flex;
+        align-items: flex-end;
+        justify-content:center;
+        text-align: center;
+        list-style-type: upper-roman;
+      padding: 15px;
+     }  
+
   
