@@ -11,4 +11,102 @@
 html {
     font-size: 16px;
 }
+body{
+    margin: 8%;
+    Background: rgba(192, 192, 192, 0.1);
+}
+#student-grid{
+display: grid;
+    grid-template-columns: 1fr,1fr, 1fr;
+    grid-template-areas:
+    "student-quote  student-quote  student-picture "
+    "student-profile student-profile student-contact"
+    " experience experience experience  ";
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+}
+#te-logo{
+    display:flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+width: 25%;
+}
+body main h1{
+    display:flex;
+    align-content: flex-start;
+width: 100%;
+font-size: 70px;
+}
+#student-picture {
+    grid-area: student-picture;
+    display:flex;
+   justify-content: center;
+    align-content: flex-start;
+}
+#student-picture img {
+    display:flex;
+    justify-content: center;
+    
+    border-radius: 50%;
+
+}
+#student-quote {
+    grid-area: student-quote;
+    padding: 20px;
+    display:flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 100%;
+
+}
+#student-quote h2{
+    width: 100%;
+    height: 50%;
+    font-size: 28px;
+    line-height: 150%
+}
+#student-profile {
+    display:flex;
+    grid-area: student-profile;
+    width:100%;
+}
+#student-contact {
+    display:flex;
+    justify-content:center;
+    align-content: center;
+    grid-area: student-contact;
+    color:#505355;
+}
+#student-profile {
+    display:flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    grid-area: student-profile;
+    flex-direction: column
+}
+#student-profile p:first-of-type {
+    width: 100%;
+    
+}
+#student-profile p:last-of-type {
+    width: 100%;
+}
+#experience {
+display: flex;  
+flex-direction: row;
+grid-area: experience;
+align-content: center;
+justify-content: center;
+flex-wrap: wrap;
+}
+#experience div{
+    width:33%;
+}
+footer {
+    grid-area: footer;
+}
+
+#experience h3{
+    color: #00ADEE
+}
 
