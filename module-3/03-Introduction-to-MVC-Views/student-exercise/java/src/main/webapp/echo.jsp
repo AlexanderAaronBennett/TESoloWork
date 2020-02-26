@@ -36,9 +36,12 @@
 		</li>
 	</ul>
 </nav>
-
-<%--
-	REPLACE THIS COMMENT WITH YOUR UNORDERED LIST...
- --%>
-
+<ul>
+<c:set var="pxcount" value ="${param.count}"/>
+<c:set var= "pxcount2" value = "${pxcount}"/>
+	<c:forEach begin= "1" end= "${param.count}" var = "number">
+	<li style="font-size: ${pxcount2}px;"> "${param.word}"</li>
+	<c:set var= "pxcount2" value = "${pxcount2 - 1 }"/>
+	</c:forEach>
+</ul>
 <c:import url="common/footer.jsp"></c:import>
