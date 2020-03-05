@@ -36,6 +36,13 @@ public class StocksController {
 	 * - Create a GET mapping to /stockPurchase
 	 * - Send the user to stocksPurchasePage.jsp
 	 */
+	@RequestMapping(path = { "/stockPurchase" }, method = RequestMethod.GET)
+	public String buyStockForm(ModelMap map) {
+		List<Stock> stocks = getStocks();
+
+		return "stocks/stocksPurchasePage";
+	}
+	
 
 	/*
 	 * 2.
@@ -48,12 +55,33 @@ public class StocksController {
 	 * - 3) Ticker Symbol
 	 * - Redirect to /stocksConfirmation
 	 */
+	@RequestMapping(path = { "/stockPurchase" }, method = RequestMethod.POST)
+	public String buyStock(
+			@RequestParam String ticker, 
+			@RequestParam int shares,
+			RedirectAttributes flashScope
+			) {
+		LocalDateTime currentTime = LocalDateTime.now();
+		String timeString = currentTime.toString();
+		flashScope.addFlashAttribute("timeStamp",timeString);
+		flashScope.addFlashAttribute("ticker", ticker);
+		flashScope.addFlashAttribute("shares", shares);
+		
+		return "redirect:stockConfirmation";
+		
+		
+	}
+		
 
 	    
 	/* 3.
 	 * Send the user to stocksConfirmationPage.jsp
 	 */
-
+	@RequestMapping(path = "/stockConfirmation")
+	public String stockConfirmation() {
+		return "stocks/sticksConfirmationPage";
+	}
+	
 	private List<Stock> getStocks() {
 		List<Stock> stocks = new ArrayList<Stock>();
 		Resource res = new ClassPathResource("stockData.txt");
