@@ -6,7 +6,7 @@
 		<title>Hello Spring MVC</title>
 	</head>
 	<body>
-		<h1>Hello, John. <c:out value="${param.name}" /></h1>
+		<h1>Hello, Insert your name here. <c:out value="${param.name}" /></h1>
 		<img height="300px"width="200px" alt= "forDummies" src = "etc/forDummies.png"/>
 		<p> Throw a party with Squirrels! Don't be forced to hang with Chipmunks!</p>
 		<a href="newReview">New Review</a>
@@ -21,11 +21,6 @@
 		</c:forEach>
 		</td></tr>
 		<tr><td>${review.text }</td></tr>
-		<tr><td></td></tr>
-			<tr><td></td></tr>
-				<tr><td></td></tr>
-					<tr><td></td></tr>
-					
 		</c:forEach>
 		</table>
 		

@@ -18,4 +18,7 @@ public class HomeController {
 		redirect.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
 		return new ModelAndView(redirect);
 	}
+	
+	
+	
 }
