@@ -19,7 +19,7 @@ public class ProductController {
 	@Autowired
 	private ProductDao productDao;
 
-	@RequestMapping("/products")
+	@RequestMapping({"/products", "/"})
 	public String showProductList(HttpServletRequest request) {
 		List<Product> products = getProducts(request);
 

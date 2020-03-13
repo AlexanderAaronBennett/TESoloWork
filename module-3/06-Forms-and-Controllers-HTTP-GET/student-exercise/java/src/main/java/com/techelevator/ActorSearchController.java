@@ -19,7 +19,7 @@ public class ActorSearchController {
 	@Autowired
 	private ActorDao actorDao;
 
-	@RequestMapping("/actorList")
+	@RequestMapping({"/actorList", "/"})
 	public String showSearchActorForm() {
 		return "actorList";
 	}

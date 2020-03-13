@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="pageTitle" value="All Actors List"/>
-<%@include file = "common/header.jspf"% %>
+<%@include file = "/WEB-INF/jsp/common/header.jspf" %>
 <c:url var="formAction" value="/searchActor" />
 
 <form method="GET" action="${formAction}">
