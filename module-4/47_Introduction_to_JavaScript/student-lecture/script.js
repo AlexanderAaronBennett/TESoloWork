@@ -10,8 +10,23 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const pi = 3.1415927;
+  console.log(pi);
   // Declares a variable those value can be changed
+  let numberOfCats = 5;
+  console.log(numberOfCats);
   // Declares a variable that will always be an array
+  const weekdays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ];
+  console.log("console.log" , weekdays);
+  console.table(weekdays);
 }
 
 /**
@@ -74,9 +89,11 @@ function objects() {
   };
 
   // Log the object
+  console.log(person);
+    console.table(person);
 
   // Log the first and last name
-
+console.log(person.firstName) + ' ' + console.log(person.LastName);
   // Log each employee
 }
 
