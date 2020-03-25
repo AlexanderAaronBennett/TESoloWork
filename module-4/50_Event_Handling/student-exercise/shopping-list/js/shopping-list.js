@@ -13,6 +13,66 @@ const groceries = [
   { id: 10, name: 'Tea', completed: false }
 ];
 
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+  displayGroceries();
+
+  const groceries = document.querySelectorAll('li');
+
+  groceries.forEach((grocery) => {
+    grocery.addEventListener('click', () => {
+    
+      if (grocery.classList.contains('completed'));
+      grocery.classList.add('completed');
+      grocery.querySelector('i').classList.add('completed')
+    });
+    grocery.addEventListener('dblclick', () => {
+      if (grocery.classList.contains('completed')) {
+        grocery.classList.remove('completed');
+        grocery.querySelector('i').classList.remove('completed');
+      }
+    })
+  });
+
+
+
+
+  const toggleAll = document.getElementById('toggleAll');
+
+  toggleAll.addEventListener('click', () => {
+    // let isPartiallyComplete = false;
+    let numberOfItems = 0;
+
+    groceries.forEach((grocery) => {
+      if (grocery.classList.contains('completed')) {
+        // isPartiallyComplete = true;
+        numberOfItems ++;
+      }
+    });
+
+    groceries.forEach((grocery) => {
+
+      if (numberOfItems == groceries.length) {
+        grocery.classList.remove('completed');
+        grocery.querySelector('i').classList.remove('completed');
+        toggleAll.innerText = 'Mark  All Complete';
+      }
+      else if (!grocery.classList.contains('completed')) {
+        grocery.classList.add('completed');
+        grocery.querySelector('i').classList.add('completed');
+        toggleAll.innerText = 'Mark All Incomplete';
+      }
+      
+      // else if (!isPartiallyComplete) {
+      //   grocery.classList.add('completed');
+      //   grocery.querySelector('i').classList.add('completed');
+      //   toggleAll.innerText = 'Mark All Incomplete';
+      // }
+    })
+  });
+});
+
+
 /**
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
@@ -36,6 +96,3 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
-
-setPageTitle();
-displayGroceries();

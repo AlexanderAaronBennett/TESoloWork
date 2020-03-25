@@ -1,7 +1,7 @@
 // add pageTitle
 const shoppingList = "My Shopping List";
 // add groceries
-let groceries = ['butter', 'milk', 'eggs', 'chicken', 'crackers','soup','chocolate', 'turkey', 'ham,', 'beer' ];
+let groceries = ['butter', 'milk', 'eggs', 'chicken', 'crackers','soup','chocolate', 'turkey', 'ham', 'beer' ];
 
 /**
  * This function will get a reference to the title and set its text to the value
@@ -21,7 +21,6 @@ function displayGroceries() {
     const container = document.createElement('li');
     container.innerText = item;
     groceryList.appendChild(container);
-
 });
 }
 
