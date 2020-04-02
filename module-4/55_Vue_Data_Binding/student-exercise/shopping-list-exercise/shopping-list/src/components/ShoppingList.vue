@@ -2,13 +2,31 @@
   <div class="shopping-list">
     <h1>My Shopping List</h1>
     <ul>
-
+    <li v-for="item in groceries " v-bind:key="item.name" v-bind:class="{completed: item.completed}">
+      {{item.name}}
+    </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      groceries: [
+        { name:'Eggs', completed: true},
+        { name:'more eggs', completed: true},
+        { name:'even more eggs',completed: true},
+        { name:'chicken eggs',completed: true},
+        { name:'quail eggs',completed: false},
+        { name:'ostrich eggs',completed: false},
+        { name:'platypus eggs',completed: false},
+        { name:'dinosaur eggs',completed: false},
+        { name:'smart car eggs', completed: false},
+      
+      ]
+    }
+  }
 
 }
 </script>
